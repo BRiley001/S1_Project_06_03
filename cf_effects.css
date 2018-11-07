@@ -14,19 +14,92 @@
 */
 
 /* HTML Styles */
-
+/* th entire page will have the selected background, which won't scroll with the page, take up the whole page, and be horizontally centered */
+html {
+    background-image: url(cf_back1.png);
+    background-attachment: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 100%;
+    height: 100%;
+}
 
 
 /* Body Styles */
-
+/* the body of the page will have the selected color for its background */
+body {
+    background-color: rgba(255, 255, 255, 0.3);
+}
 
 
 /* Body Header Styles */
-
+/* any headers within the body will have the selected color for its background */
+body header {
+    background-color: rgba(51, 51, 51, 0.5);
+}
 
 
 /* Aside Styles */
+/* any asides within the section will have a double lines border 10px wide , with rounded corners that have a radius of 30px */
+section aside {
+    border: 10px double rgba(92, 42, 8, 0.3);
+    border-radius: 30px;
+}
 
+/* any h1s within asides that are within sections will have borders of 30px on only their top corners */
+section aside h1 {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+/* both section elements will have a perspective of 450px */
+section#left,
+section#right {
+    perspective: 450px;
+}
+
+/* any asides within there sections will be rotated 25 deg, flipped depending on which side they are on */
+section#left aside {
+    transform: rotateY(25deg)
+}
+
+section#right aside {
+    transform: rotateY(-25deg)
+}
 
 
 /* Cube Styles */
+/* the cube, which is a collection of images that will be placed to look like it is inside a cube with no back, has a complicated setup,involving the positioning being changed, the margin being specific to each side, and each image being uniform on width and height. Each image is individualised, needing to be changed individually, but it is always a translation that depends on position, and for the faces not in the center a rotation based on position and what side of the image should be shown. */
+div#cube {
+    position: relative;
+    margin: 180px auto 150px;
+    width: 400px;
+    height: 400px;
+    perspective: 450px;
+}
+
+div.cube_face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+div#cube_front {
+    transform: translateZ(-50px);
+}
+
+div#cube_left {
+    transform: translateX(-200px) rotateY(90deg);
+}
+
+div#cube_right {
+    transform: translateX(200px) rotateY(-90deg);
+}
+
+div#cube_top {
+    transform: translateY(-200px) rotateX(-90deg);
+}
+
+div#cube_bottom {
+    transform: translateY(200px) rotateX(90deg);
+}
